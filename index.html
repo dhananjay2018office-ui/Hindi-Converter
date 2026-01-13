@@ -1,169 +1,113 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindi Converter - Krutidev & Unicode</title>
-    <style>
-        :root {
-            --bg-color: #0f0f0f;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --primary-green: #2ecc71;
-            --text-color: #ffffff;
-            --border-color: rgba(255, 255, 255, 0.1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hindi Font Converter</title>
+  <style>
+    :root{
+      --bg:#0b0f0e;
+      --card:#121816cc;
+      --green:#6CFF7A;
+      --text:#e6e6e6;
+      --muted:#9aa3a0;
+      --border:rgba(255,255,255,0.08);
+      --blur:blur(18px);
+    }
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto;}
+    body{
+      margin:0;min-height:100vh;
+      background:radial-gradient(60% 40% at 50% 0%, #123 0%, transparent 60%), var(--bg);
+      color:var(--text);
+      display:flex;align-items:center;justify-content:center;
+      padding:30px;
+    }
+    .wrap{max-width:1100px;width:100%;}
+    h1{text-align:center;font-weight:600;letter-spacing:.5px;margin-bottom:8px;}
+    .sub{text-align:center;color:var(--muted);margin-bottom:30px;}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    @media(max-width:900px){.grid{grid-template-columns:1fr;}}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at top right, #1a1a1a, #000000);
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 50px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 25px;
-            width: 450px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s ease;
-        }
-
-        .glass-card:hover {
-            border-color: var(--primary-green);
-        }
-
-        .header-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 1.2rem;
-            color: var(--primary-green);
-            margin: 0;
-        }
-
-        textarea {
-            width: 100%;
-            height: 300px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: #fff;
-            padding: 15px;
-            font-size: 18px;
-            resize: none;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        textarea:focus {
-            border-color: var(--primary-green);
-        }
-
-        .btn-container {
-            margin-top: 20px;
-            text-align: right;
-        }
-
-        button {
-            background: var(--primary-green);
-            color: #000;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        button:hover {
-            background: #27ae60;
-            box-shadow: 0 0 15px var(--primary-green);
-            transform: translateY(-2px);
-        }
-
-        .footer-text {
-            margin-top: 40px;
-            color: #555;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .glass-card { width: 100%; }
-        }
-    </style>
+    .card{
+      background:var(--card);
+      backdrop-filter:var(--blur);
+      -webkit-backdrop-filter:var(--blur);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+    .card h3{margin:0 0 10px;font-size:14px;letter-spacing:1px;color:var(--green);}
+    textarea{
+      width:100%;height:260px;
+      background:transparent;color:var(--text);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px;font-size:18px;resize:none;
+      outline:none;
+    }
+    textarea::placeholder{color:#777;}
+    .actions{display:flex;justify-content:center;margin-top:14px;}
+    button{
+      background:linear-gradient(135deg,#5CFF73,#2fbf71);
+      border:none;color:#06220f;
+      padding:12px 26px;border-radius:30px;
+      font-size:14px;font-weight:600;cursor:pointer;
+      box-shadow:0 10px 30px rgba(108,255,122,.25);
+    }
+    footer{text-align:center;margin-top:30px;color:#6f7a76;font-size:13px;}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <h1>Hindi Font Converter</h1>
+    <div class="sub">Hindi Devanagari ⇄ Krutidev Unicode Converter</div>
 
-    <h1 style="margin-top: 40px; color: var(--primary-green);">Hindi Font Converter</h1>
-    <p style="color: #888;">Modern Krutidev & Unicode Tool</p>
-
-    <div class="container">
-        <div class="glass-card">
-            <div class="header-box">
-                <h2>कृतिदेव / Krutidev 010</h2>
-            </div>
-            <textarea id="krutidev_text" placeholder="Yahan Krutidev text likhein..."></textarea>
-            <div class="btn-container">
-                <button onclick="convertKrutidevToUnicode()">Convert to Unicode ↓</button>
-            </div>
+    <div class="grid">
+      <!-- Hindi to Krutidev -->
+      <div class="card">
+        <h3>HINDI TYPE KARE</h3>
+        <textarea id="unicode" placeholder="यहाँ हिंदी लिखें…"></textarea>
+        <div class="actions">
+          <button onclick="toKruti()">Convert to Krutidev ↓</button>
         </div>
+      </div>
 
-        <div class="glass-card">
-            <div class="header-box">
-                <h2>यूनिकोड / Unicode (Mangal)</h2>
-            </div>
-            <textarea id="unicode_text" placeholder="Yahan Hindi (Unicode) likhein..."></textarea>
-            <div class="btn-container">
-                <button onclick="convertUnicodeToKrutidev()">Convert to Krutidev ↑</button>
-            </div>
+      <!-- Krutidev to Hindi -->
+      <div class="card">
+        <h3>KRUTIDEV 010</h3>
+        <textarea id="kruti" placeholder="Krutidev 010 में लिखें…"></textarea>
+        <div class="actions">
+          <button onclick="toUnicode()">Convert to Hindi ↑</button>
         </div>
+      </div>
     </div>
 
-    <p class="footer-text">Made with ❤️ for Hindi Typing</p>
+    <footer>Free Hindi Font Converter • Dark Glass UI</footer>
+  </div>
 
-    <script>
-        // Note: Conversion mapping functions are complex. 
-        // Here is the simplified logic structure for you to build upon.
+<script>
+/* NOTE:
+   Real Hindi ↔ Krutidev conversion requires a large character mapping table.
+   Below is a BASIC demo mapping. You can later replace this with full map.
+*/
+const mapU2K = {
+  'क':'d','ख':'[k','ग':'x','द':'n','श':''k','ि':'f'
+};
+const mapK2U = Object.fromEntries(Object.entries(mapU2K).map(a=>a.reverse()));
 
-        function convertKrutidevToUnicode() {
-            let krutiText = document.getElementById("krutidev_text").value;
-            // Yahan conversion ka logic aayega
-            // Testing ke liye simple copy:
-            document.getElementById("unicode_text").value = "Conversion Logic Applied: " + krutiText;
-            alert("Krutidev to Unicode process triggered! (Logic integration needed)");
-        }
-
-        function convertUnicodeToKrutidev() {
-            let uniText = document.getElementById("unicode_text").value;
-            // Yahan conversion ka logic aayega
-            document.getElementById("krutidev_text").value = "Conversion Logic Applied: " + uniText;
-            alert("Unicode to Krutidev process triggered! (Logic integration needed)");
-        }
-    </script>
+function toKruti(){
+  let t = document.getElementById('unicode').value;
+  let out = '';
+  for (let ch of t){ out += mapU2K[ch] || ch; }
+  document.getElementById('kruti').value = out;
+}
+function toUnicode(){
+  let t = document.getElementById('kruti').value;
+  let out = '';
+  for (let ch of t){ out += mapK2U[ch] || ch; }
+  document.getElementById('unicode').value = out;
+}
+</script>
 </body>
 </html>
