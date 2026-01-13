@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Converter - Krutidev & Unicode</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --primary-green: #2ecc71;
+            --text-color: #ffffff;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top right, #1a1a1a, #000000);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 25px;
+            width: 450px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary-green);
+        }
+
+        .header-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            margin: 0;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: #fff;
+            padding: 15px;
+            font-size: 18px;
+            resize: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: var(--primary-green);
+        }
+
+        .btn-container {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        button {
+            background: var(--primary-green);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: #27ae60;
+            box-shadow: 0 0 15px var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .footer-text {
+            margin-top: 40px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .glass-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="margin-top: 40px; color: var(--primary-green);">Hindi Font Converter</h1>
+    <p style="color: #888;">Modern Krutidev & Unicode Tool</p>
+
+    <div class="container">
+        <div class="glass-card">
+            <div class="header-box">
+                <h2>कृतिदेव / Krutidev 010</h2>
+            </div>
+            <textarea id="krutidev_text" placeholder="Yahan Krutidev text likhein..."></textarea>
+            <div class="btn-container">
+                <button onclick="convertKrutidevToUnicode()">Convert to Unicode ↓</button>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="header-box">
+                <h2>यूनिकोड / Unicode (Mangal)</h2>
+            </div>
+            <textarea id="unicode_text" placeholder="Yahan Hindi (Unicode) likhein..."></textarea>
+            <div class="btn-container">
+                <button onclick="convertUnicodeToKrutidev()">Convert to Krutidev ↑</button>
+            </div>
+        </div>
+    </div>
+
+    <p class="footer-text">Made with ❤️ for Hindi Typing</p>
+
+    <script>
+        // Note: Conversion mapping functions are complex. 
+        // Here is the simplified logic structure for you to build upon.
+
+        function convertKrutidevToUnicode() {
+            let krutiText = document.getElementById("krutidev_text").value;
+            // Yahan conversion ka logic aayega
+            // Testing ke liye simple copy:
+            document.getElementById("unicode_text").value = "Conversion Logic Applied: " + krutiText;
+            alert("Krutidev to Unicode process triggered! (Logic integration needed)");
+        }
+
+        function convertUnicodeToKrutidev() {
+            let uniText = document.getElementById("unicode_text").value;
+            // Yahan conversion ka logic aayega
+            document.getElementById("krutidev_text").value = "Conversion Logic Applied: " + uniText;
+            alert("Unicode to Krutidev process triggered! (Logic integration needed)");
+        }
+    </script>
+</body>
+</html>
